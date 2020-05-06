@@ -9,7 +9,6 @@ import io.reactivex.Single;
 
 public interface WeatherDataSource {
 
-
     Single<List<CurrentWeather>> getCurrentWeather();
     Single<List<ForecastWeather>> getForecastWeather();
 

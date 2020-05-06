@@ -7,14 +7,18 @@ import java.util.List;
 
 import io.reactivex.Single;
 
-public class NewsRepository implements WeatherDataSource {
+public class WeatherRepository implements WeatherDataSource {
+
+    private ServerDataSource serverDataSource = new ServerDataSource();
+    private LocalDataSource localDataSource = new LocalDataSource();
+
     @Override
     public Single<List<CurrentWeather>> getCurrentWeather() {
-        return null;
+        return serverDataSource.getCurrentWeather();
     }
 
     @Override
     public Single<List<ForecastWeather>> getForecastWeather() {
-        return null;
+        return serverDataSource.getForecastWeather();
     }
 }
