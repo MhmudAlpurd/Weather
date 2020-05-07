@@ -1,4 +1,4 @@
-package com.totonarya.weather.todayTempChartFragment;
+package com.totonarya.weather.TempChartFragment;
 
 import com.totonarya.weather.base.BaseFragment;
 
