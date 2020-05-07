@@ -1,7 +1,7 @@
 package com.totonarya.weather.data;
 
-import com.totonarya.weather.data.pojo.current.CurrentWeather;
 import com.totonarya.weather.data.pojo.forecast.ForecastWeather;
+import com.totonarya.weather.data.pojo.current.CurrentWeather;
 
 import java.util.List;
 
@@ -17,8 +17,9 @@ public class WeatherRepository implements WeatherDataSource {
         return serverDataSource.getCurrentWeather();
     }
 
-    @Override
-    public Single<List<ForecastWeather>> getForecastWeather() {
+    public Single<List<ForecastWeather>> getForecastWeather(){
         return serverDataSource.getForecastWeather();
     }
+
+
 }

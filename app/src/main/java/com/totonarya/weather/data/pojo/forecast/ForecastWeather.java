@@ -17,7 +17,7 @@ public class ForecastWeather {
     private Integer cnt;
     @SerializedName("list")
     @Expose
-    private java.util.List<com.totonarya.weather.List> list = null;
+    private java.util.List<List> list = null;
     @SerializedName("city")
     @Expose
     private City city;
@@ -46,11 +46,11 @@ public class ForecastWeather {
         this.cnt = cnt;
     }
 
-    public java.util.List<com.totonarya.weather.List> getList() {
+    public java.util.List<List> getList() {
         return list;
     }
 
-    public void setList(java.util.List<com.totonarya.weather.List> list) {
+    public void setList(java.util.List<List> list) {
         this.list = list;
     }
 

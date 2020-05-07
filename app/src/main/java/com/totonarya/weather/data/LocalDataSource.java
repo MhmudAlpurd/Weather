@@ -1,7 +1,6 @@
 package com.totonarya.weather.data;
 
 import com.totonarya.weather.data.pojo.current.CurrentWeather;
-import com.totonarya.weather.data.pojo.forecast.ForecastWeather;
 
 import java.util.List;
 
@@ -13,8 +12,8 @@ public class LocalDataSource implements WeatherDataSource {
         return null;
     }
 
-    @Override
+/*    @Override
     public Single<List<ForecastWeather>> getForecastWeather() {
         return null;
-    }
+    }*/
 }

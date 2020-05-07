@@ -1,7 +1,7 @@
 package com.totonarya.weather.data;
 
-import com.totonarya.weather.data.pojo.current.CurrentWeather;
 import com.totonarya.weather.data.pojo.forecast.ForecastWeather;
+import com.totonarya.weather.data.pojo.current.CurrentWeather;
 
 import java.util.List;
 
@@ -21,13 +21,11 @@ public class ServerDataSource implements WeatherDataSource {
         apiService = retrofit.create(ApiService.class);
     }
 
-    @Override
     public Single<List<CurrentWeather>> getCurrentWeather() {
         //TODO: DEFINE CITY AND STATE VARS.
         return apiService.getCurrentWeather("Tehran","Iran" , APP_ID);
     }
 
-    @Override
     public Single<List<ForecastWeather>> getForecastWeather() {
         //TODO: DEFINE CITY AND STATE VARS.
         return apiService.getForeCastWeather("Tehran", "Iran", APP_ID);
