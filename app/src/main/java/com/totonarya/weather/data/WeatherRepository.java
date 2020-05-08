@@ -1,5 +1,7 @@
 package com.totonarya.weather.data;
 
+import android.util.Log;
+
 import com.totonarya.weather.data.pojo.forecast.ForecastWeather;
 import com.totonarya.weather.data.pojo.current.CurrentWeather;
 
@@ -14,6 +16,7 @@ public class WeatherRepository implements WeatherDataSource {
 
     @Override
     public Single<List<CurrentWeather>> getCurrentWeather() {
+        Log.d("CurrentWeather", "WeatherRepository:getCurrentWeather: 1");
         return serverDataSource.getCurrentWeather();
     }
 

@@ -41,186 +41,10 @@
         android:textStyle="bold" />
 
     <RelativeLayout
-        android:id="@+id/rl_tempandicon_main"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_below="@+id/txt_date_main"
-        android:layout_marginLeft="20dp">
-
-        <ImageView
-            android:id="@+id/img_WeatherIcon_main"
-            android:layout_width="170dp"
-            android:layout_height="170dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="30dp"
-            android:src="@drawable/sunny" />
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="40dp"
-            android:layout_marginRight="70dp">
-
-            <TextView
-                android:id="@+id/txt_tempdeg_main"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="7dp"
-                android:text="25&#176;C"
-                android:textColor="#f7f30f"
-                android:textSize="50dp" />
-
-            <TextView
-                android:id="@+id/txt_weathersituation_main"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/txt_tempdeg_main"
-                android:layout_marginTop="20dp"
-                android:text="Sunny"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/txt_weatherDiscription_main"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/txt_weathersituation_main"
-                android:layout_marginTop="5dp"
-                android:text="Description"
-                android:textSize="15dp" />
-        </RelativeLayout>
-
-    </RelativeLayout>
-
-
-    <LinearLayout
-        android:id="@+id/rl_featurs_main"
+        android:id="@+id/rel_main_fragmentContainer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/rl_tempandicon_main"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="5dp">
-
-        <LinearLayout
-            android:id="@+id/ll_tempicon_main"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/shap"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/thermometer" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="25&#176;C"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/ll_tempmax_main"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/shap"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/hot" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="25&#176;C"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/ll_tempmin_main"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/shap"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/cold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="25&#176;C"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/ll_windSpeedicon_main"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/shap"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/wind" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="25&#176;C"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/ll_humidityicon_main"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="40dp"
-            android:background="@drawable/shap"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/drop" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="25&#176;C"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-
-    </LinearLayout>
+        android:layout_height="match_parent">
 
 
     <!--TODO: DRAW Temperature forcast chart-->
@@ -257,5 +81,10 @@
         app:backgroundTint="#2c489c"
         app:fabSize="normal"
         app:rippleColor="#b12f2f" />
+
+
+
+
+    </RelativeLayout>
 
 </RelativeLayout>

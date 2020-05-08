@@ -1,5 +1,7 @@
 package com.totonarya.weather.data;
 
+import android.util.Log;
+
 import com.totonarya.weather.data.pojo.forecast.ForecastWeather;
 import com.totonarya.weather.data.pojo.current.CurrentWeather;
 
@@ -23,11 +25,14 @@ public class ServerDataSource implements WeatherDataSource {
 
     public Single<List<CurrentWeather>> getCurrentWeather() {
         //TODO: DEFINE CITY AND STATE VARS.
-        return apiService.getCurrentWeather("Tehran","Iran" , APP_ID);
+        Log.d("CurrentWeather", "ServerDataSource:getCurrentWeather:1");
+       // return apiService.getCurrentWeather("Tehran","Iran" , APP_ID);
+        return apiService.getCurrentWeather();
     }
 
     public Single<List<ForecastWeather>> getForecastWeather() {
         //TODO: DEFINE CITY AND STATE VARS.
-        return apiService.getForeCastWeather("Tehran", "Iran", APP_ID);
+        //return apiService.getForeCastWeather("Tehran", "Iran", APP_ID);
+        return apiService.getForeCastWeather();
     }
 }
