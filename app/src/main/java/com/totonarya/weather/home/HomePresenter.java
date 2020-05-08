@@ -37,8 +37,10 @@ public class HomePresenter implements HomeContract.Presenter {
 
                     @Override
                     public void onSuccess(List<CurrentWeather> currentWeathers) {
-                        Log.d("CurrentWeather", "HomePresenter:onSuccess:1");
                         view.showCurrentWeather(currentWeathers);
+                        Log.d("CurrentWeather", "HomePresenter:onSuccess:1");
+
+
 
                     }
 

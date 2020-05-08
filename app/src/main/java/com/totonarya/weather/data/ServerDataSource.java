@@ -26,13 +26,13 @@ public class ServerDataSource implements WeatherDataSource {
     public Single<List<CurrentWeather>> getCurrentWeather() {
         //TODO: DEFINE CITY AND STATE VARS.
         Log.d("CurrentWeather", "ServerDataSource:getCurrentWeather:1");
-       // return apiService.getCurrentWeather("Tehran","Iran" , APP_ID);
-        return apiService.getCurrentWeather();
+       return apiService.getCurrentWeather();
+        //return apiService.getCurrentWeather();
     }
 
     public Single<List<ForecastWeather>> getForecastWeather() {
         //TODO: DEFINE CITY AND STATE VARS.
-        //return apiService.getForeCastWeather("Tehran", "Iran", APP_ID);
-        return apiService.getForeCastWeather();
+        return apiService.getForeCastWeather( APP_ID);
+       // return apiService.getForeCastWeather();
     }
 }
