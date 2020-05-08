@@ -7,11 +7,12 @@ import com.totonarya.weather.data.pojo.forecast.ForecastWeather;
 
 import java.util.List;
 
+import io.reactivex.Observable;
 import io.reactivex.Single;
 
 public interface WeatherDataSource {
 
-    Single<CurrentWeather> getCurrentWeather();
-   Single<List<ForecastWeather>> getForecastWeather();
+    Observable<CurrentWeather> getCurrentWeather();
+
 
 }

@@ -5,16 +5,12 @@ import com.totonarya.weather.data.pojo.forecast.ForecastWeather;
 
 import java.util.List;
 
-import io.reactivex.Single;
+import io.reactivex.Observable;
+
 
 public class LocalDataSource implements WeatherDataSource {
     @Override
-    public Single<CurrentWeather> getCurrentWeather() {
-        return null;
-    }
-
-   @Override
-    public Single<List<ForecastWeather>> getForecastWeather() {
+    public Observable<CurrentWeather> getCurrentWeather() {
         return null;
     }
 }

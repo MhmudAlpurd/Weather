@@ -13,7 +13,7 @@ public interface HomeContract {
 
     interface View extends BaseView {
 
-        void showCurrentWeather(CurrentWeather currentWeatherList);
+        void showCurrentWeather(CurrentWeather currentWeather);
         void showError(String error);
     }
 

@@ -7,6 +7,8 @@ import com.totonarya.weather.data.pojo.current.CurrentWeather;
 
 import java.util.List;
 
+import io.reactivex.Observable;
+import io.reactivex.Observer;
 import io.reactivex.SingleObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -28,19 +30,17 @@ public class HomePresenter implements HomeContract.Presenter {
         Log.d("CurrentWeather", "HomePresenter:GetCurrentWeather:1");
         weatherDataSource.getCurrentWeather().subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new SingleObserver<CurrentWeather>() {
+                .subscribe(new Observer<CurrentWeather>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-                        Log.d("CurrentWeather", "HomePresenter:GetCurrentWeather:onsubscribe:1");
                         compositeDisposable.add(d);
+                        Log.d("CurrentWeather", "HomePresenter:GetCurrentWeather:onsubscribe:1");
                     }
 
                     @Override
-                    public void onSuccess(CurrentWeather currentWeather) {
+                    public void onNext(CurrentWeather currentWeather) {
+                        Log.d("CurrentWeather", "HomePresenter:onNext:1");
                         view.showCurrentWeather(currentWeather);
-                        Log.d("CurrentWeather", "HomePresenter:onSuccess:1");
-                        Log.d("CurrentWeather", currentWeather.toString());
-
                     }
 
                     @Override
@@ -48,9 +48,15 @@ public class HomePresenter implements HomeContract.Presenter {
                         view.showError(e.toString());
                         Log.d("CurrentWeather", "HomePresenter:onError:1");
                         Log.d("CurrentWeather", e.toString());
+                    }
+
+                    @Override
+                    public void onComplete() {
 
                     }
                 });
+
+
 
     }
 

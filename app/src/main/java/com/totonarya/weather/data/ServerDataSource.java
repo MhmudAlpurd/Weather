@@ -2,11 +2,9 @@ package com.totonarya.weather.data;
 
 import android.util.Log;
 
-import com.totonarya.weather.data.pojo.forecast.ForecastWeather;
 import com.totonarya.weather.data.pojo.current.CurrentWeather;
 
-import java.util.List;
-
+import io.reactivex.Observable;
 import io.reactivex.Single;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
@@ -17,22 +15,17 @@ public class ServerDataSource implements WeatherDataSource {
     final String APP_ID = "d32376e1460f4bda251d473227f33515";
 
     public ServerDataSource() {
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("https://api.openweathermap.org/data/2.5/")
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://www.mocky.io/")
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create()).build();
         apiService = retrofit.create(ApiService.class);
     }
 
-    public Single<CurrentWeather> getCurrentWeather() {
+    public Observable<CurrentWeather> getCurrentWeather() {
         //TODO: DEFINE CITY AND STATE VARS.
         Log.d("CurrentWeather", "ServerDataSource:getCurrentWeather:1");
-       return apiService.getCurrentWeather();
-        //return apiService.getCurrentWeather();
+        return apiService.getCurrentWeather();
     }
 
-    public Single<List<ForecastWeather>> getForecastWeather() {
-        //TODO: DEFINE CITY AND STATE VARS.
-        return apiService.getForeCastWeather( APP_ID);
-       // return apiService.getForeCastWeather();
-    }
 }
+
