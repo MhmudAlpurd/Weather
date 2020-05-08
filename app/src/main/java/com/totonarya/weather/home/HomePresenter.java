@@ -28,7 +28,7 @@ public class HomePresenter implements HomeContract.Presenter {
         Log.d("CurrentWeather", "HomePresenter:GetCurrentWeather:1");
         weatherDataSource.getCurrentWeather().subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new SingleObserver<List<CurrentWeather>>() {
+                .subscribe(new SingleObserver<CurrentWeather>() {
                     @Override
                     public void onSubscribe(Disposable d) {
                         Log.d("CurrentWeather", "HomePresenter:GetCurrentWeather:onsubscribe:1");
@@ -36,11 +36,10 @@ public class HomePresenter implements HomeContract.Presenter {
                     }
 
                     @Override
-                    public void onSuccess(List<CurrentWeather> currentWeathers) {
-                        view.showCurrentWeather(currentWeathers);
+                    public void onSuccess(CurrentWeather currentWeather) {
+                        view.showCurrentWeather(currentWeather);
                         Log.d("CurrentWeather", "HomePresenter:onSuccess:1");
-
-
+                        Log.d("CurrentWeather", currentWeather.toString());
 
                     }
 
@@ -48,6 +47,8 @@ public class HomePresenter implements HomeContract.Presenter {
                     public void onError(Throwable e) {
                         view.showError(e.toString());
                         Log.d("CurrentWeather", "HomePresenter:onError:1");
+                        Log.d("CurrentWeather", e.toString());
+
                     }
                 });
 

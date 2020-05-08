@@ -9,7 +9,7 @@ import io.reactivex.Single;
 
 public class LocalDataSource implements WeatherDataSource {
     @Override
-    public Single<List<CurrentWeather>> getCurrentWeather() {
+    public Single<CurrentWeather> getCurrentWeather() {
         return null;
     }
 

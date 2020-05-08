@@ -15,7 +15,7 @@ public class WeatherRepository implements WeatherDataSource {
     private LocalDataSource localDataSource = new LocalDataSource();
 
     @Override
-    public Single<List<CurrentWeather>> getCurrentWeather() {
+    public Single<CurrentWeather> getCurrentWeather() {
         Log.d("CurrentWeather", "WeatherRepository:getCurrentWeather: 1");
         return serverDataSource.getCurrentWeather();
     }

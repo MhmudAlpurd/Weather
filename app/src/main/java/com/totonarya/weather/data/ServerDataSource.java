@@ -17,13 +17,13 @@ public class ServerDataSource implements WeatherDataSource {
     final String APP_ID = "d32376e1460f4bda251d473227f33515";
 
     public ServerDataSource() {
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://api.openweathermap.org/data/2.5/")
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("https://api.openweathermap.org/data/2.5/")
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create()).build();
         apiService = retrofit.create(ApiService.class);
     }
 
-    public Single<List<CurrentWeather>> getCurrentWeather() {
+    public Single<CurrentWeather> getCurrentWeather() {
         //TODO: DEFINE CITY AND STATE VARS.
         Log.d("CurrentWeather", "ServerDataSource:getCurrentWeather:1");
        return apiService.getCurrentWeather();

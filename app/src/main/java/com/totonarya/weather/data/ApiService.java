@@ -28,7 +28,7 @@ public interface ApiService {
 
   //  @GET("weather?q={city},{state}&appid={APP_ID}")
     @GET("weather?q=Tehran,IRAN&appid=d32376e1460f4bda251d473227f33515")
-    Single<List<CurrentWeather>> getCurrentWeather();
+    Single<CurrentWeather> getCurrentWeather();
 
 
     @GET("weather?q=Tehran,IRAN")
