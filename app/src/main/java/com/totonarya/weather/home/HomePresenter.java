@@ -40,7 +40,6 @@ public class HomePresenter implements HomeContract.Presenter {
                     @Override
                     public void onNext(CurrentWeather currentWeather) {
                         Log.d("CurrentWeather", "HomePresenter:onNext:1");
-                        Log.d("CurrentWeather", currentWeather.toString());
                         view.showCurrentWeather(currentWeather);
                     }
 
@@ -53,7 +52,7 @@ public class HomePresenter implements HomeContract.Presenter {
 
                     @Override
                     public void onComplete() {
-
+                        Log.d("CurrentWeather", "HomePresenter:onComplete");
                     }
                 });
 
