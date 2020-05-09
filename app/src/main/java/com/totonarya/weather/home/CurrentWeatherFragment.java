@@ -36,8 +36,11 @@ public class CurrentWeatherFragment extends BaseFragment implements HomeContract
     }
 
     @Override
-    public void showCurrentWeather(CurrentWeather currentWeatherList) {
-        Log.d("CurrentWeather", "CurrentWeathrFragment:showCurrentWeather:1");
+    public void showCurrentWeather(CurrentWeather currentWeather) {
+    String CityName =   currentWeather.getName().toString();
+    String Weather = currentWeather.getId().toString();
+
+        Log.d("currentweather", Weather);
 
     }
 

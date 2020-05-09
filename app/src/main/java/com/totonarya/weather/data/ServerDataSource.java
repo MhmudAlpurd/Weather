@@ -15,7 +15,7 @@ public class ServerDataSource implements WeatherDataSource {
     final String APP_ID = "d32376e1460f4bda251d473227f33515";
 
     public ServerDataSource() {
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://www.mocky.io/")
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://www.mocky.io/v2/5eb647be3100006e0069998f/")
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create()).build();
         apiService = retrofit.create(ApiService.class);
