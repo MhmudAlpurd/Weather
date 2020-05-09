@@ -18,8 +18,8 @@ public interface ApiService {
     //Current Link: http://api.openweathermap.org/data/2.5/weather?q=Tehran,IRAN&appid=d32376e1460f4bda251d473227f33515
     //Forecast Link: http://api.openweathermap.org/data/2.5/forecast?q=tehran,ir&appid=d32376e1460f4bda251d473227f33515
 
-    @GET("weather?q=Tehran,IRAN&appid=d32376e1460f4bda251d473227f33515")
-    Observable<CurrentWeather> getCurrentWeather();
+    @GET("weather?")
+    Observable<CurrentWeather> getCurrentWeather(@Query("q") String cnt, @Query("appid") String APP_ID);
     //Flowable
 
 

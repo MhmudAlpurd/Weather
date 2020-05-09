@@ -12,7 +12,7 @@ import io.reactivex.Single;
 
 public interface WeatherDataSource {
 
-    Observable<CurrentWeather> getCurrentWeather();
+    Observable<CurrentWeather> getCurrentWeather(String City, String State);
 
 
 }

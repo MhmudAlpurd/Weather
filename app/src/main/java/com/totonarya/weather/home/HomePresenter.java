@@ -16,6 +16,7 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 public class HomePresenter implements HomeContract.Presenter {
+
     private HomeContract.View view;
     private WeatherDataSource weatherDataSource;
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
@@ -26,9 +27,9 @@ public class HomePresenter implements HomeContract.Presenter {
     }
 
     @Override
-    public void getCurrentWeather() {
+    public void getCurrentWeather(String City, String State) {
         Log.d("CurrentWeather", "HomePresenter:GetCurrentWeather:1");
-        weatherDataSource.getCurrentWeather().subscribeOn(Schedulers.newThread())
+        weatherDataSource.getCurrentWeather(City,State).subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<CurrentWeather>() {
                     @Override
@@ -61,9 +62,9 @@ public class HomePresenter implements HomeContract.Presenter {
     }
 
     @Override
-    public void attachView(HomeContract.View view) {
+    public void attachView(HomeContract.View view, String City, String State) {
         this.view = view;
-        getCurrentWeather();
+        getCurrentWeather(City, State);
     }
 
     @Override

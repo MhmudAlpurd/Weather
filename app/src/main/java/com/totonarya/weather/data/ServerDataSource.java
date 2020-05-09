@@ -21,10 +21,10 @@ public class ServerDataSource implements WeatherDataSource {
         apiService = retrofit.create(ApiService.class);
     }
 
-    public Observable<CurrentWeather> getCurrentWeather() {
-        //TODO: DEFINE CITY AND STATE VARS.
+    public Observable<CurrentWeather> getCurrentWeather(String City, String State) {
+        String Location = City + "," + State;
         Log.d("CurrentWeather", "ServerDataSource:getCurrentWeather:1");
-        return apiService.getCurrentWeather();
+        return apiService.getCurrentWeather(Location, APP_ID);
     }
 
 }

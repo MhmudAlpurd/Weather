@@ -16,11 +16,10 @@ public class WeatherRepository implements WeatherDataSource {
     private LocalDataSource localDataSource = new LocalDataSource();
 
     @Override
-    public Observable<CurrentWeather> getCurrentWeather() {
+    public Observable<CurrentWeather> getCurrentWeather(String City, String State) {
         Log.d("CurrentWeather", "WeatherRepository:getCurrentWeather: 1");
-        return serverDataSource.getCurrentWeather();
+        return serverDataSource.getCurrentWeather(City,State);
     }
-
 
 
 

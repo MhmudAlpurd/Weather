@@ -16,7 +16,8 @@ import java.util.List;
 public class CurrentWeatherFragment extends BaseFragment implements HomeContract.View {
 
     private HomeContract.Presenter presenter;
-
+String City="Tehran";
+String State = "Iran";
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +28,7 @@ public class CurrentWeatherFragment extends BaseFragment implements HomeContract
 
     @Override
     public void setupViews() {
-
+        Log.d("CurrentWeather", "CurrentWeatherFragment:setUpViews:1");
     }
 
     @Override
@@ -41,6 +42,7 @@ public class CurrentWeatherFragment extends BaseFragment implements HomeContract
     String ID = currentWeather.getId().toString();
     String Clouds = currentWeather.getClouds().getAll().toString();
     String Temp = currentWeather.getMain().getTemp().toString();
+    String TempMax = currentWeather.getMain().getTempMax().toString();
 
 
         Log.d("currentweather", Temp);
@@ -59,8 +61,9 @@ public class CurrentWeatherFragment extends BaseFragment implements HomeContract
 
     @Override
     public void onStart() {
+        Log.d("CurrentWeather", "CurrentWeatherFragment:onStart:1");
         super.onStart();
-        presenter.attachView(this);
+        presenter.attachView(this,City,State);
     }
 
     @Override

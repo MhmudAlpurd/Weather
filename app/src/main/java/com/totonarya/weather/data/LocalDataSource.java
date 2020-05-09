@@ -10,7 +10,7 @@ import io.reactivex.Observable;
 
 public class LocalDataSource implements WeatherDataSource {
     @Override
-    public Observable<CurrentWeather> getCurrentWeather() {
+    public Observable<CurrentWeather> getCurrentWeather(String City, String State) {
         return null;
     }
 }
