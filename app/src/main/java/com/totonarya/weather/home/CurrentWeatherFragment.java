@@ -16,13 +16,14 @@ import java.util.List;
 public class CurrentWeatherFragment extends BaseFragment implements HomeContract.View {
 
     private HomeContract.Presenter presenter;
-String City="Tehran";
-String State = "Iran";
+    String City = "Tehran";
+    String State = "Iran";
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d("CurrentWeather", "onCreate:CurrentWeatherFragment:1");
-        presenter = new HomePresenter(new  WeatherRepository());
+        presenter = new HomePresenter(new WeatherRepository());
 
     }
 
@@ -38,11 +39,11 @@ String State = "Iran";
 
     @Override
     public void showCurrentWeather(CurrentWeather currentWeather) {
-    String CityName =   currentWeather.getName().toString();
-    String ID = currentWeather.getId().toString();
-    String Clouds = currentWeather.getClouds().getAll().toString();
-    String Temp = currentWeather.getMain().getTemp().toString();
-    String TempMax = currentWeather.getMain().getTempMax().toString();
+        String CityName = currentWeather.getName().toString();
+        String ID = currentWeather.getId().toString();
+        String Clouds = currentWeather.getClouds().getAll().toString();
+        String Temp = currentWeather.getMain().getTemp().toString();
+        String TempMax = currentWeather.getMain().getTempMax().toString();
 
 
         Log.d("currentweather", Temp);
@@ -63,7 +64,7 @@ String State = "Iran";
     public void onStart() {
         Log.d("CurrentWeather", "CurrentWeatherFragment:onStart:1");
         super.onStart();
-        presenter.attachView(this,City,State);
+        presenter.attachView(this, City, State);
     }
 
     @Override

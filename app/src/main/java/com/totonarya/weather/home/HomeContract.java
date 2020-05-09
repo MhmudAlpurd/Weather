@@ -18,8 +18,8 @@ public interface HomeContract {
         void showError(String error);
     }
 
-    interface Presenter extends BasePresenter<View,String, String> {
-        void getCurrentWeather(City, State);
+    interface Presenter extends BasePresenter<View> {
+        void getCurrentWeather(String City, String State);
     }
 
 
