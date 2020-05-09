@@ -16,7 +16,7 @@ import java.util.List;
 public class CurrentWeatherFragment extends BaseFragment implements HomeContract.View {
 
     private HomeContract.Presenter presenter;
-    String City = "Tehran";
+    String City = "Shiraz";
     String State = "Iran";
 
     @Override
@@ -39,7 +39,7 @@ public class CurrentWeatherFragment extends BaseFragment implements HomeContract
 
     @Override
     public void showCurrentWeather(CurrentWeather currentWeather) {
-        String CityName = currentWeather.getName().toString();
+        String CityName = currentWeather.getName();
         String ID = currentWeather.getId().toString();
         String Clouds = currentWeather.getClouds().getAll().toString();
         String Temp = currentWeather.getMain().getTemp().toString();
@@ -47,6 +47,8 @@ public class CurrentWeatherFragment extends BaseFragment implements HomeContract
 
 
         Log.d("currentweather", Temp);
+        Log.d("currentweather", CityName);
+        Log.d("currentweather", ID);
 
     }
 
