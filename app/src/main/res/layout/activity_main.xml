@@ -1,3 +1,6 @@
+
+
+
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -41,27 +44,37 @@
         android:textStyle="bold" />
 
     <RelativeLayout
-        android:layout_below="@+id/txt_date_main"
+
         android:id="@+id/rel_main_fragmentContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_date_main" />
 
-
-    <!--TODO: DRAW Temperature forcast chart-->
+   <!-- TODO: ADD TEMP CHART-->
+    <TextView
+        android:id="@+id/txt_TempChart_MainActivity"
+        android:layout_below="@+id/rel_main_fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:text="TempChart"
+       android:gravity="center"
+        android:textSize="25dp"
+        android:textStyle="bold"/>
 
 
     <TextView
+        android:layout_below="@+id/txt_TempChart_MainActivity"
         android:id="@+id/txt_CityState_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/rl_featurs_main"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         android:text="Tehran,Iran"
         android:textSize="20dp" />
 
 
     <ImageView
+        android:id="@+id/img_arrowup_main"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_below="@id/txt_CityState_main"
@@ -69,7 +82,7 @@
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
+        android:id="@+id/fab_Main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
@@ -82,9 +95,5 @@
         app:fabSize="normal"
         app:rippleColor="#b12f2f" />
 
-
-
-
-    </RelativeLayout>
 
 </RelativeLayout>

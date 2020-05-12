@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <RelativeLayout
-        android:id="@+id/rl_tempandicon_main"
+        android:id="@+id/rl_tempandicon_currentweatherfrag"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txt_date_main"
         android:layout_marginLeft="20dp">
 
         <ImageView
-            android:id="@+id/img_WeatherIcon_main"
+            android:id="@+id/img_WeatherIcon_currentweatherfrag"
             android:layout_width="170dp"
             android:layout_height="170dp"
             android:layout_alignParentLeft="true"
@@ -27,29 +27,29 @@
             android:layout_marginRight="70dp">
 
             <TextView
-                android:id="@+id/txt_tempdeg_main"
+                android:id="@+id/txt_MainCurrentTemp_currentweatherfrag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="7dp"
-                android:text="25&#176;C"
+                android:text="20&#176;C"
                 android:textColor="#f7f30f"
                 android:textSize="50dp" />
 
             <TextView
-                android:id="@+id/txt_weathersituation_main"
+                android:id="@+id/txt_weathersituation_currentweatherfrag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/txt_tempdeg_main"
+                android:layout_below="@id/txt_MainCurrentTemp_currentweatherfrag"
                 android:layout_marginTop="20dp"
                 android:text="Sunny"
                 android:textSize="20dp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/txt_weatherDiscription_main"
+                android:id="@+id/txt_weatherDiscription_currentweatherfrag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/txt_weathersituation_main"
+                android:layout_below="@+id/txt_weathersituation_currentweatherfrag"
                 android:layout_marginTop="5dp"
                 android:text="Description"
                 android:textSize="15dp" />
@@ -59,15 +59,15 @@
 
 
     <LinearLayout
-        android:id="@+id/rl_featurs_main"
+        android:id="@+id/rl_featurs_currentweatherfrag"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/rl_tempandicon_main"
+        android:layout_below="@+id/rl_tempandicon_currentweatherfrag"
         android:layout_centerInParent="true"
         android:layout_marginTop="5dp">
 
         <LinearLayout
-            android:id="@+id/ll_tempicon_main"
+            android:id="@+id/ll_tempicon_currentweatherfrag"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
@@ -83,6 +83,7 @@
                 android:src="@drawable/thermometer" />
 
             <TextView
+                android:id="@+id/txt_CurrentTemp_currentweatherfrag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -91,7 +92,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/ll_tempmax_main"
+            android:id="@+id/ll_tempmax_currentweatherfrag"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -106,6 +107,7 @@
                 android:src="@drawable/hot" />
 
             <TextView
+                android:id="@+id/txt_maxTemp_currentweatherfrag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -114,7 +116,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/ll_tempmin_main"
+            android:id="@+id/ll_tempmin_currentweatherfrag"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -129,6 +131,7 @@
                 android:src="@drawable/cold" />
 
             <TextView
+                android:id="@+id/txt_minTemp_currentweatherfrag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -137,7 +140,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/ll_windSpeedicon_main"
+            android:id="@+id/ll_windSpeedicon_currentweatherfrag"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -152,6 +155,7 @@
                 android:src="@drawable/wind" />
 
             <TextView
+                android:id="@+id/txt_WindSpeed_currentweatherfrag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -160,7 +164,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/ll_humidityicon_main"
+            android:id="@+id/ll_humidityicon_currentweatherfrag"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -175,6 +179,7 @@
                 android:src="@drawable/drop" />
 
             <TextView
+                android:id="@+id/txt_Humidity_currentweatherfrag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"

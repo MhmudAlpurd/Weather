@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.totonarya.weather.data.WeatherDataSource;
 import com.totonarya.weather.data.pojo.current.CurrentWeather;
+import com.totonarya.weather.data.pojo.forecast.City;
 
 import java.util.List;
 
@@ -18,53 +19,60 @@ import io.reactivex.schedulers.Schedulers;
 public class HomePresenter implements HomeContract.Presenter {
 
     private HomeContract.View view;
+    String City;
+    String State;
     private WeatherDataSource weatherDataSource;
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
 
-    public HomePresenter(WeatherDataSource weatherDataSource) {
+    public HomePresenter(WeatherDataSource weatherDataSource, String City, String State) {
         this.weatherDataSource = weatherDataSource;
-        Log.d("CurrentWeather", "HomePresenter:Constructor:1");
+        this.City = City;
+        this.State = State;
     }
 
     @Override
     public void getCurrentWeather(String City, String State) {
         Log.d("CurrentWeather", "HomePresenter:GetCurrentWeather:1");
-        weatherDataSource.getCurrentWeather(City,State).subscribeOn(Schedulers.newThread())
+        weatherDataSource.getCurrentWeather(City, State).subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<CurrentWeather>() {
                     @Override
                     public void onSubscribe(Disposable d) {
                         compositeDisposable.add(d);
-                        Log.d("CurrentWeather", "HomePresenter:GetCurrentWeather:onsubscribe:1");
+
                     }
 
                     @Override
                     public void onNext(CurrentWeather currentWeather) {
-                        Log.d("CurrentWeather", "HomePresenter:onNext:1");
                         view.showCurrentWeather(currentWeather);
+
                     }
 
                     @Override
                     public void onError(Throwable e) {
                         view.showError(e.toString());
-                        Log.d("CurrentWeather", "HomePresenter:onError:1");
-                        Log.d("CurrentWeather", e.toString());
                     }
 
                     @Override
                     public void onComplete() {
-                        Log.d("CurrentWeather", "HomePresenter:onComplete");
+                        setDataOnUI();
                     }
                 });
-
-
 
     }
 
     @Override
-    public void attachView(HomeContract.View view, String City, String State) {
+    public void setDataOnUI() {
+        view.OnSetData();
+    }
+
+
+    @Override
+    public void attachView(HomeContract.View view) {
         this.view = view;
         getCurrentWeather(City, State);
+
+
     }
 
     @Override
