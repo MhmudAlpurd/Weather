@@ -3,9 +3,9 @@ package com.totonarya.weather.data;
 import android.util.Log;
 
 import com.totonarya.weather.data.pojo.current.CurrentWeather;
+import com.totonarya.weather.data.pojo.forecast.ForecastWeather;
 
 import io.reactivex.Observable;
-import io.reactivex.Single;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -23,8 +23,14 @@ public class ServerDataSource implements WeatherDataSource {
 
     public Observable<CurrentWeather> getCurrentWeather(String City, String State) {
         String Location = City + "," + State;
-        Log.d("CurrentWeather", "ServerDataSource:getCurrentWeather:1");
         return apiService.getCurrentWeather(Location, APP_ID);
+    }
+
+    @Override
+    public Observable<ForecastWeather> getForecastWeather(String City, String State) {
+        String Location = City + "," + State;
+        Log.d("LLL", "Observable<ForecastWeather>");
+        return apiService.getForecastWeather(Location,APP_ID);
     }
 
 }

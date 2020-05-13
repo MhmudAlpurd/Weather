@@ -4,14 +4,8 @@ package com.totonarya.weather.data;
 import com.totonarya.weather.data.pojo.current.CurrentWeather;
 import com.totonarya.weather.data.pojo.forecast.ForecastWeather;
 
-import java.util.List;
-
-import io.reactivex.Flowable;
 import io.reactivex.Observable;
-import io.reactivex.Single;
 import retrofit2.http.GET;
-import retrofit2.http.POST;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface ApiService {
@@ -20,8 +14,9 @@ public interface ApiService {
 
     @GET("weather?")
     Observable<CurrentWeather> getCurrentWeather(@Query("q") String cnt, @Query("appid") String APP_ID);
-    //Flowable
 
+    @GET("forecast?")
+    Observable<ForecastWeather> getForecastWeather(@Query("q") String cnt, @Query("appid") String APP_ID);
 
 
 }

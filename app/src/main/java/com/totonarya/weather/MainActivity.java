@@ -18,7 +18,6 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d("CurrentWeather", "onCreate:MainActivity:1");
         setupViews();
 
 
@@ -26,7 +25,6 @@ public class MainActivity extends AppCompatActivity{
     }
 
     private void setupViews() {
-        Log.d("CurrentWeather", "setupViews:MainActivity:2");
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.rel_main_fragmentContainer, new CurrentWeatherFragment());
         fragmentTransaction.commit();

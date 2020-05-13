@@ -20,19 +20,19 @@ public class Main {
     private Double tempMax;
     @SerializedName("pressure")
     @Expose
-    private Integer pressure;
+    private Double pressure;
     @SerializedName("sea_level")
     @Expose
-    private Integer seaLevel;
+    private Double seaLevel;
     @SerializedName("grnd_level")
     @Expose
-    private Integer grndLevel;
+    private Double grndLevel;
     @SerializedName("humidity")
     @Expose
-    private Integer humidity;
+    private Double humidity;
     @SerializedName("temp_kf")
     @Expose
-    private Integer tempKf;
+    private Double tempKf;
 
     public Double getTemp() {
         return temp;
@@ -66,44 +66,43 @@ public class Main {
         this.tempMax = tempMax;
     }
 
-    public Integer getPressure() {
+    public Double getPressure() {
         return pressure;
     }
 
-    public void setPressure(Integer pressure) {
+    public void setPressure(Double pressure) {
         this.pressure = pressure;
     }
 
-    public Integer getSeaLevel() {
+    public Double getSeaLevel() {
         return seaLevel;
     }
 
-    public void setSeaLevel(Integer seaLevel) {
+    public void setSeaLevel(Double seaLevel) {
         this.seaLevel = seaLevel;
     }
 
-    public Integer getGrndLevel() {
+    public Double getGrndLevel() {
         return grndLevel;
     }
 
-    public void setGrndLevel(Integer grndLevel) {
+    public void setGrndLevel(Double grndLevel) {
         this.grndLevel = grndLevel;
     }
 
-    public Integer getHumidity() {
+    public Double getHumidity() {
         return humidity;
     }
 
-    public void setHumidity(Integer humidity) {
+    public void setHumidity(Double humidity) {
         this.humidity = humidity;
     }
 
-    public Integer getTempKf() {
+    public Double getTempKf() {
         return tempKf;
     }
 
-    public void setTempKf(Integer tempKf) {
+    public void setTempKf(Double tempKf) {
         this.tempKf = tempKf;
     }
-
 }

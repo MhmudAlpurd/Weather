@@ -1,16 +1,9 @@
 package com.totonarya.weather.home;
 
-import android.util.Log;
-
 import com.totonarya.weather.data.WeatherDataSource;
 import com.totonarya.weather.data.pojo.current.CurrentWeather;
-import com.totonarya.weather.data.pojo.forecast.City;
 
-import java.util.List;
-
-import io.reactivex.Observable;
 import io.reactivex.Observer;
-import io.reactivex.SingleObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
@@ -32,7 +25,6 @@ public class HomePresenter implements HomeContract.Presenter {
 
     @Override
     public void getCurrentWeather(String City, String State) {
-        Log.d("CurrentWeather", "HomePresenter:GetCurrentWeather:1");
         weatherDataSource.getCurrentWeather(City, State).subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<CurrentWeather>() {

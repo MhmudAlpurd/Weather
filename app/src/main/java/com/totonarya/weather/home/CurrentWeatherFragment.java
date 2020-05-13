@@ -24,7 +24,6 @@ public class CurrentWeatherFragment extends BaseFragment implements HomeContract
     private TextView date;
     private TextView weatherSituation;
     private String weather_CurrentSituation_fromData;
-
     private TextView maxTemprature;
     private TextView mainCurrentTemp;
     private TextView weatherDescription;
@@ -40,6 +39,7 @@ public class CurrentWeatherFragment extends BaseFragment implements HomeContract
     private Double Temp_Min_fromData;
     private Double WindSpeed_fromData;
     private Double currentTemp_fromData;
+    private String state_fromData;
 
 
     public Func func;
@@ -98,7 +98,7 @@ public class CurrentWeatherFragment extends BaseFragment implements HomeContract
         windSpeed.setText(WindSpeed_fromData + "m|s");
         humidity.setText(Humidity_fromData + "%");
 
-        cityName.setText(City_fromData);
+        cityName.setText(City_fromData.toUpperCase() +","+ state_fromData.toUpperCase());
         date.setText(TimeConverted_fromData);
         weatherSituation.setText(weather_CurrentSituation_fromData);
 
@@ -119,7 +119,7 @@ public class CurrentWeatherFragment extends BaseFragment implements HomeContract
         Humidity_fromData = currentWeather.getMain().getHumidity();
         WindSpeed_fromData = currentWeather.getWind().getSpeed();
         String clouds_fromData = currentWeather.getClouds().getAll().toString();
-        String state_fromData = currentWeather.getSys().getCountry();
+        state_fromData = currentWeather.getSys().getCountry();
         int sunriseTime_fromData = currentWeather.getSys().getSunrise();
         int sunSetTime_fromData = currentWeather.getSys().getSunset();
         City_fromData = currentWeather.getName();
