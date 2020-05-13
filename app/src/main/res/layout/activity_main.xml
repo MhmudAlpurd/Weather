@@ -1,6 +1,3 @@
-
-
-
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -19,38 +16,14 @@
         android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
 
 
-    <TextView
-        android:id="@+id/txt_cityname_main"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/img_kebabmenu_main"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="3dp"
-        android:gravity="center"
-        android:text="Tehran"
-        android:textColor="#000000"
-        android:textSize="30sp"
-        android:textStyle="bold" />
-
-
-    <TextView
-        android:id="@+id/txt_date_main"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txt_cityname_main"
-        android:layout_centerInParent="true"
-        android:text="TUESDAY, 9:00 AM"
-        android:textSize="15dp"
-        android:textStyle="bold" />
-
     <RelativeLayout
 
         android:id="@+id/rel_main_fragmentContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txt_date_main" />
+        android:layout_below="@+id/img_kebabmenu_main" />
 
-   <!-- TODO: ADD TEMP CHART-->
+
     <TextView
         android:id="@+id/txt_TempChart_MainActivity"
         android:layout_below="@+id/rel_main_fragmentContainer"
@@ -64,20 +37,20 @@
 
     <TextView
         android:layout_below="@+id/txt_TempChart_MainActivity"
-        android:id="@+id/txt_CityState_main"
+        android:id="@+id/txt_Forecast_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:text="Tehran,Iran"
-        android:textSize="20dp" />
+        android:text="Forecast"
+        android:textSize="15dp" />
 
 
     <ImageView
         android:id="@+id/img_arrowup_main"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_below="@id/txt_CityState_main"
+        android:layout_below="@id/txt_Forecast_main"
         android:src="@drawable/ic_arrow_drop_up_black_24dp" />
 
 

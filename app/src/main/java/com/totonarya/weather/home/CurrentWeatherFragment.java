@@ -19,7 +19,7 @@ import com.totonarya.weather.utils.Func;
 
 public class CurrentWeatherFragment extends BaseFragment implements HomeContract.View {
     ImageView kebabMenu, arrowUp, weatherIcon;
-    TextView cityName, humidity, date_main, tempChart, cityState, maxTemprature, mainCurrentTemp, weatherSituation, weatherDescription, currentTemp, minTemperature, windSpeed;
+    TextView cityName, humidity, date, tempChart, cityState, maxTemprature, mainCurrentTemp, weatherSituation, weatherDescription, currentTemp, minTemperature, windSpeed;
     FloatingActionButton fab_Main;
     int Weather_ID_fromData, Pressure_fromData, Humidity_fromData, SunriseTime_fromData, SunSetTime_fromData, currentTemp_fromData_Converted, maxTemprature_fromData_Converted;
     String Weather_CurrentSituation_fromData, Weather_Description_fromData, Weather_Icon_fromData,
@@ -31,7 +31,7 @@ public class CurrentWeatherFragment extends BaseFragment implements HomeContract
 
 
     private HomeContract.Presenter presenter;
-    String City = "Tehran";
+    String City = "Shiraz";
     String State = "Iran";
 
     @Override
@@ -52,10 +52,9 @@ public class CurrentWeatherFragment extends BaseFragment implements HomeContract
         maxTemprature = rootView.findViewById(R.id.txt_maxTemp_currentweatherfrag);
         kebabMenu = rootView.findViewById(R.id.img_kebabmenu_main);
         arrowUp = rootView.findViewById(R.id.img_arrowup_main);
-        cityName = rootView.findViewById(R.id.txt_cityname_main);
-        date_main = rootView.findViewById(R.id.txt_date_main);
+        cityName = rootView.findViewById(R.id.txt_cityname_currentweatherfrag);
+        date = rootView.findViewById(R.id.txt_date_currentweatherfrag);
         tempChart = rootView.findViewById(R.id.txt_TempChart_MainActivity);
-        cityState = rootView.findViewById(R.id.txt_CityState_main);
         fab_Main = rootView.findViewById(R.id.fab_Main);
         mainCurrentTemp = rootView.findViewById(R.id.txt_MainCurrentTemp_currentweatherfrag);
         currentTemp = rootView.findViewById(R.id.txt_CurrentTemp_currentweatherfrag);
@@ -85,11 +84,13 @@ public class CurrentWeatherFragment extends BaseFragment implements HomeContract
         int minTemprature_fromData_Converted = func.kelvinToCenti(Temp_Min_fromData);
         minTemperature.setText(minTemprature_fromData_Converted + "\u00B0" + "C");
 
-        windSpeed.setText(WindSpeed_fromData +"m/s");
+        windSpeed.setText(WindSpeed_fromData +"m|s");
         humidity.setText(Humidity_fromData+"%");
 
-        Log.d("SSS",City_fromData);
         cityName.setText(City_fromData);
+        date.setText(TimeConverted_fromData);
+
+
 
 
     }
