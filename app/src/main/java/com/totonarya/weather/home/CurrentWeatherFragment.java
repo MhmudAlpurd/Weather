@@ -18,26 +18,41 @@ import com.totonarya.weather.utils.Consts;
 import com.totonarya.weather.utils.Func;
 
 public class CurrentWeatherFragment extends BaseFragment implements HomeContract.View {
-    ImageView kebabMenu, arrowUp, weatherIcon;
-    TextView cityName, humidity, date, tempChart, cityState, maxTemprature, mainCurrentTemp, weatherSituation, weatherDescription, currentTemp, minTemperature, windSpeed;
-    FloatingActionButton fab_Main;
-    int Weather_ID_fromData, Pressure_fromData, Humidity_fromData, SunriseTime_fromData, SunSetTime_fromData, currentTemp_fromData_Converted, maxTemprature_fromData_Converted;
-    String Weather_CurrentSituation_fromData, Weather_Description_fromData, Weather_Icon_fromData,
-            Clouds_fromData, State_fromData, City_fromData, TimeConverted_fromData;
-    private Double Temp_fromData, Temp_Max_fromData, Temp_Min_fromData, WindSpeed_fromData, currentTemp_fromData;
+    private ImageView weatherIcon;
+    private TextView cityName;
+    private TextView humidity;
+    private TextView date;
+    private TextView weatherSituation;
+    private String weather_CurrentSituation_fromData;
+
+    private TextView maxTemprature;
+    private TextView mainCurrentTemp;
+    private TextView weatherDescription;
+    private TextView currentTemp;
+    private TextView minTemperature;
+    private TextView windSpeed;
+    private int Humidity_fromData;
+    private String Weather_Description_fromData;
+    private String Weather_Icon_fromData;
+    private String City_fromData;
+    private String TimeConverted_fromData;
+    private Double Temp_Max_fromData;
+    private Double Temp_Min_fromData;
+    private Double WindSpeed_fromData;
+    private Double currentTemp_fromData;
 
 
     public Func func;
 
 
     private HomeContract.Presenter presenter;
-    String City = "Shiraz";
-    String State = "Iran";
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        presenter = new HomePresenter(new WeatherRepository(), City, State);
+        String city = "Tehran";
+        String state = "Iran";
+        presenter = new HomePresenter(new WeatherRepository(), city, state);
         func = new Func();
     }
 
@@ -50,12 +65,8 @@ public class CurrentWeatherFragment extends BaseFragment implements HomeContract
         weatherSituation = rootView.findViewById(R.id.txt_weathersituation_currentweatherfrag);
         weatherIcon = rootView.findViewById(R.id.img_WeatherIcon_currentweatherfrag);
         maxTemprature = rootView.findViewById(R.id.txt_maxTemp_currentweatherfrag);
-        kebabMenu = rootView.findViewById(R.id.img_kebabmenu_main);
-        arrowUp = rootView.findViewById(R.id.img_arrowup_main);
         cityName = rootView.findViewById(R.id.txt_cityname_currentweatherfrag);
         date = rootView.findViewById(R.id.txt_date_currentweatherfrag);
-        tempChart = rootView.findViewById(R.id.txt_TempChart_MainActivity);
-        fab_Main = rootView.findViewById(R.id.fab_Main);
         mainCurrentTemp = rootView.findViewById(R.id.txt_MainCurrentTemp_currentweatherfrag);
         currentTemp = rootView.findViewById(R.id.txt_CurrentTemp_currentweatherfrag);
     }
@@ -84,13 +95,12 @@ public class CurrentWeatherFragment extends BaseFragment implements HomeContract
         int minTemprature_fromData_Converted = func.kelvinToCenti(Temp_Min_fromData);
         minTemperature.setText(minTemprature_fromData_Converted + "\u00B0" + "C");
 
-        windSpeed.setText(WindSpeed_fromData +"m|s");
-        humidity.setText(Humidity_fromData+"%");
+        windSpeed.setText(WindSpeed_fromData + "m|s");
+        humidity.setText(Humidity_fromData + "%");
 
         cityName.setText(City_fromData);
         date.setText(TimeConverted_fromData);
-
-
+        weatherSituation.setText(weather_CurrentSituation_fromData);
 
 
     }
@@ -98,20 +108,20 @@ public class CurrentWeatherFragment extends BaseFragment implements HomeContract
     @Override
     public void showCurrentWeather(CurrentWeather currentWeather) {
         currentTemp_fromData = currentWeather.getMain().getTemp();
-        Weather_ID_fromData = currentWeather.getWeather().get(0).getId();
-        Weather_CurrentSituation_fromData = currentWeather.getWeather().get(0).getMain();
+        int weather_ID_fromData = currentWeather.getWeather().get(0).getId();
+        weather_CurrentSituation_fromData = currentWeather.getWeather().get(0).getMain();
         Weather_Description_fromData = currentWeather.getWeather().get(0).getDescription();
         Weather_Icon_fromData = currentWeather.getWeather().get(0).getIcon();
-        Temp_fromData = currentWeather.getMain().getTemp();
+        Double temp_fromData = currentWeather.getMain().getTemp();
         Temp_Max_fromData = currentWeather.getMain().getTempMax();
         Temp_Min_fromData = currentWeather.getMain().getTempMin();
-        Pressure_fromData = currentWeather.getMain().getPressure();
+        int pressure_fromData = currentWeather.getMain().getPressure();
         Humidity_fromData = currentWeather.getMain().getHumidity();
         WindSpeed_fromData = currentWeather.getWind().getSpeed();
-        Clouds_fromData = currentWeather.getClouds().getAll().toString();
-        State_fromData = currentWeather.getSys().getCountry();
-        SunriseTime_fromData = currentWeather.getSys().getSunrise();
-        SunSetTime_fromData = currentWeather.getSys().getSunset();
+        String clouds_fromData = currentWeather.getClouds().getAll().toString();
+        String state_fromData = currentWeather.getSys().getCountry();
+        int sunriseTime_fromData = currentWeather.getSys().getSunrise();
+        int sunSetTime_fromData = currentWeather.getSys().getSunset();
         City_fromData = currentWeather.getName();
         TimeConverted_fromData = func.unix_To_UTC(currentWeather.getDt());
 
