@@ -1,6 +1,7 @@
 package com.totonarya.weather.forecastweather;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -14,11 +15,8 @@ import com.totonarya.weather.data.pojo.forecast.ForecastWeather;
 import com.totonarya.weather.utils.Func;
 
 import org.eazegraph.lib.charts.BarChart;
-import org.eazegraph.lib.charts.ValueLineChart;
 import org.eazegraph.lib.models.BarModel;
-import org.eazegraph.lib.models.LegendModel;
-import org.eazegraph.lib.models.ValueLinePoint;
-import org.eazegraph.lib.models.ValueLineSeries;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +28,7 @@ public class ForecastActivity extends AppCompatActivity implements ForecastContr
     String state = "Iran";
     Func func = new Func();
     BarChart mBarChart;
+    RecyclerView recyclerView;
 
 
     @Override
@@ -38,6 +37,7 @@ public class ForecastActivity extends AppCompatActivity implements ForecastContr
         setContentView(R.layout.activity_forecast);
         presenter = new ForecastPresenter(new WeatherRepository(), city, state);
         mBarChart = findViewById(R.id.barChart);
+        recyclerView = findViewById(R.id.rv_ForecastItems_ForecastActivity);
 
     }
 
@@ -86,7 +86,7 @@ public class ForecastActivity extends AppCompatActivity implements ForecastContr
 
     @Override
     public Context getViewContext() {
-        return null;
+        return this.getViewContext();
     }
 }
 

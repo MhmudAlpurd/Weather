@@ -10,15 +10,20 @@
         android:id="@+id/barChart"
         android:layout_width="300dp"
         android:layout_height="200dp"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
         android:scrollbarStyle="insideInset"
         app:egAnimationTime="2000"
         app:egBarWidth="30dp"
         app:egFixedBarWidth="true"
         app:egLegendHeight="30dp"
         app:egLegendTextSize="10dp"
-        app:egShowValues="true"
-        />
+        app:egShowValues="true" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_ForecastItems_ForecastActivity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/barChart" />
 
 
 </RelativeLayout>
