@@ -1,5 +1,9 @@
 package com.totonarya.weather.forecastweather;
 
+import android.content.ClipData;
+import android.content.Context;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -8,25 +12,41 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.totonarya.weather.R;
+import com.totonarya.weather.data.Item;
 
-public class ForecastItemsAdapter extends RecyclerView.Adapter<ForecastItemsAdapter.MyViewHolder>{
+
+import java.util.List;
+
+public class ForecastItemsAdapter extends RecyclerView.Adapter<ForecastItemsAdapter.MyViewHolder> {
+    List<Item> itemList;
+    Context mContext;
+
+    public ForecastItemsAdapter(List<Item> itemList, Context mContext) {
+        this.itemList = itemList;
+        this.mContext = mContext;
+    }
+
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+
+        View aView = LayoutInflater.from(parent.getContext()).inflate(R.layout.forecastitems_item, parent, false);
+        return new MyViewHolder(aView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        Item aItem = itemList.get(position);
+        holder.one.setText(aItem.getuName());
 
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return itemList.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder{
+    public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView one;
         public TextView two;
         public TextView three;

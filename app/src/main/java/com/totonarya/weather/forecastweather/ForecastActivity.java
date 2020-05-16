@@ -1,6 +1,7 @@
 package com.totonarya.weather.forecastweather;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.totonarya.weather.R;
+import com.totonarya.weather.data.Item;
 import com.totonarya.weather.data.WeatherRepository;
 import com.totonarya.weather.data.pojo.forecast.ForecastWeather;
 import com.totonarya.weather.utils.Func;
@@ -28,7 +30,10 @@ public class ForecastActivity extends AppCompatActivity implements ForecastContr
     String state = "Iran";
     Func func = new Func();
     BarChart mBarChart;
-    RecyclerView recyclerView;
+    //RecyclerView
+    RecyclerView forecastRecyclerView;
+    List<Item> mItem = new ArrayList<>();
+    ForecastItemsAdapter forecastItemsAdapter;
 
 
     @Override
@@ -37,13 +42,26 @@ public class ForecastActivity extends AppCompatActivity implements ForecastContr
         setContentView(R.layout.activity_forecast);
         presenter = new ForecastPresenter(new WeatherRepository(), city, state);
         mBarChart = findViewById(R.id.barChart);
-        recyclerView = findViewById(R.id.rv_ForecastItems_ForecastActivity);
+        //RecyclerView
+        forecastRecyclerView = findViewById(R.id.rv_ForecastItems_ForecastActivity);
+        forecastItemsAdapter = new ForecastItemsAdapter(mItem, this);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        forecastRecyclerView.setLayoutManager(mLayoutManager);
+        forecastRecyclerView.setAdapter(forecastItemsAdapter);
+
+
+        OnSetData();
+
 
     }
 
     @Override
     public void OnSetData() {
-
+        mItem.add(new Item(1,"name_One","Message_One","Time_One"));
+        mItem.add(new Item(2,"name_Two","Message_Two","Time_Two"));
+        mItem.add(new Item(3,"name_Three","Message_Three","Time_Three"));
+        mItem.add(new Item(4,"name_Four","Message_Four","Time_Four"));
+        forecastItemsAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -59,7 +77,7 @@ public class ForecastActivity extends AppCompatActivity implements ForecastContr
             tempsList.add(tempList_Converted);
             int color = func.color_Selector(tempList_Converted);
             mBarChart.addBar(new BarModel((float) tempList_Converted, color));
-           //TODO: SET DATES INSTEAD OF LEGENDS OF BARCHART.
+            //TODO: SET DATES INSTEAD OF LEGENDS OF BARCHART.
         }
 
         mBarChart.startAnimation();
