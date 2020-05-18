@@ -31,13 +31,11 @@ public class HomePresenter implements HomeContract.Presenter {
                     @Override
                     public void onSubscribe(Disposable d) {
                         compositeDisposable.add(d);
-
                     }
 
                     @Override
                     public void onNext(CurrentWeather currentWeather) {
                         view.showCurrentWeather(currentWeather);
-
                     }
 
                     @Override

@@ -18,10 +18,10 @@ import com.totonarya.weather.data.Item;
 import java.util.List;
 
 public class ForecastItemsAdapter extends RecyclerView.Adapter<ForecastItemsAdapter.MyViewHolder> {
-    List<Item> itemList;
+    List<com.totonarya.weather.data.pojo.forecast.List> itemList;
     Context mContext;
 
-    public ForecastItemsAdapter(List<Item> itemList, Context mContext) {
+    public ForecastItemsAdapter(List<com.totonarya.weather.data.pojo.forecast.List> itemList, Context mContext) {
         this.itemList = itemList;
         this.mContext = mContext;
     }
@@ -36,8 +36,8 @@ public class ForecastItemsAdapter extends RecyclerView.Adapter<ForecastItemsAdap
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        Item aItem = itemList.get(position);
-        holder.one.setText(aItem.getuName());
+        com.totonarya.weather.data.pojo.forecast.List aItem = itemList.get(position);
+        holder.one.setText(aItem.getDtTxt());
 
     }
 

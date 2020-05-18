@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <org.eazegraph.lib.charts.BarChart
+        android:id="@+id/barChart"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:scrollbarStyle="insideInset"
+        app:egAnimationTime="2000"
+        app:egBarWidth="30dp"
+        app:egFixedBarWidth="true"
+        app:egLegendHeight="30dp"
+        app:egLegendTextSize="10dp"
+        app:egShowValues="true" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_ForecastItems_ForecastActivity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/barChart" />
+
+</RelativeLayout>
