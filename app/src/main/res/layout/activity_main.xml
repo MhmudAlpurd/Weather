@@ -109,7 +109,8 @@
             android:id="@+id/rel_forecast_fragmentContainer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-             />
+             >
+        </RelativeLayout>
 
     </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

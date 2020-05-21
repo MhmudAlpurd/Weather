@@ -36,17 +36,13 @@ public class ForecastWeatherFragment extends BaseFragment implements ForecastCon
     TextView textView;
 
 
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        presenter = new ForecastPresenter(new WeatherRepository(), city, state);
-        mBarChart = rootView.findViewById(R.id.barChart);
-        forecastRecyclerView = rootView.findViewById(R.id.rv_ForecastItems_ForecastActivity);
-        Log.d("ForecastActivity","onCreate");
-        textView.setText("Two");
-
-
+      //  presenter = new ForecastPresenter(new WeatherRepository(), city, state);
+      //  mBarChart = rootView.findViewById(R.id.barChart_ForecastFrag);
+      //  mBarChart = rootView.findViewById(R.id.barChart_ForecastFrag);
+      //  forecastRecyclerView = rootView.findViewById(R.id.rv_ForecastItems_ForecastFrag);
 
 
     }
@@ -58,66 +54,68 @@ public class ForecastWeatherFragment extends BaseFragment implements ForecastCon
 
     @Override
     public int getLayout() {
-        return R.layout.fragmentforecastweather ;
+        return R.layout.fragmentforecastweather;
     }
 
     @Override
     public void OnSetData() {
-        Log.d("ForecastActivity","OnSetData");
+        Log.d("ForecastActivity", "OnSetData");
     }
 
     @Override
     public void showForecastWeather(ForecastWeather forecastWeatherList) {
-        int d = forecastWeatherList.getList().size();
-        Double f = forecastWeatherList.getList().get(0).getMain().getTemp();
-        mItem = forecastWeatherList.getList();
+/*           int d = forecastWeatherList.getList().size();
+           Double f = forecastWeatherList.getList().get(0).getMain().getTemp();
+           mItem = forecastWeatherList.getList();
 
-        for (int i = 0; i < d; i++) {
-            Double tempList_Kelvin = forecastWeatherList.getList().get(i).getMain().getTemp();
-            String date = forecastWeatherList.getList().get(i).getDt().toString();
-            int tempList_Converted = func.kelvinToCenti(tempList_Kelvin);
-            tempsList.add(tempList_Converted);
-            int color = func.color_Selector(tempList_Converted);
-            mBarChart.addBar(new BarModel((float) tempList_Converted, color));
-            //TODO: SET DATES INSTEAD OF LEGENDS OF BARCHART.
+           for (int i = 0; i < d; i++) {
+               Double tempList_Kelvin = forecastWeatherList.getList().get(i).getMain().getTemp();
+               String date = forecastWeatherList.getList().get(i).getDt().toString();
+               int tempList_Converted = func.kelvinToCenti(tempList_Kelvin);
+               tempsList.add(tempList_Converted);
+               int color = func.color_Selector(tempList_Converted);
+               mBarChart.addBar(new BarModel((float) tempList_Converted, color));
+               //TODO: SET DATES INSTEAD OF LEGENDS OF BARCHART.
 
 
-        }
-        mBarChart.startAnimation();
-        sendDataToRV();
-        Log.d("ForecastActivity","showForecastWeather");
+           }
+
+       //    mBarChart.startAnimation();
+
+    sendDataToRV();
+           Log.d("ForecastActivity","showForecastWeather");*/
+
     }
 
 
-    public void sendDataToRV() {
-        forecastItemsAdapter = new ForecastItemsAdapter(mItem, getViewContext());
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getViewContext());
-        forecastRecyclerView.setLayoutManager(mLayoutManager);
-        forecastRecyclerView.setAdapter(forecastItemsAdapter);
-        Log.d("ForecastActivity","sendDataToRV");
-    }
+
+/*       public void sendDataToRV() {
+           forecastItemsAdapter = new ForecastItemsAdapter(mItem, getViewContext());
+           RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getViewContext());
+           forecastRecyclerView.setLayoutManager(mLayoutManager);
+           forecastRecyclerView.setAdapter(forecastItemsAdapter);
+           Log.d("ForecastActivity","sendDataToRV");
+       }*/
 
     @Override
     public void showError(String error) {
         Toast.makeText(getViewContext(), error, Toast.LENGTH_SHORT).show();
-        Log.d("ForecastFragment","showError");
+        Log.d("ForecastFragment", "showError");
     }
-
-
-
-
 
     @Override
     public void onStart() {
         super.onStart();
-        Log.d("ForecastFragment","onStart");
+        Log.d("ForecastFragment", "onStart");
         presenter.attachView(this);
     }
+
     @Override
     public void onStop() {
         super.onStop();
         presenter.detachView();
     }
+
     @Override
     public Context getViewContext() {
         return getContext();

@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <org.eazegraph.lib.charts.BarChart
-        android:id="@+id/barChart"
+        android:id="@+id/barChart_ForecastFrag"
         android:layout_width="300dp"
         android:layout_height="200dp"
         android:layout_centerHorizontal="true"
@@ -17,9 +17,9 @@
         app:egShowValues="true" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_ForecastItems_ForecastActivity"
+        android:id="@+id/rv_ForecastItems_ForecastFrag"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/barChart" />
+        android:layout_below="@id/barChart_ForecastFrag" />
 
 </RelativeLayout>
