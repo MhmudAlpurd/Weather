@@ -6,22 +6,39 @@ import com.squareup.picasso.Picasso;
 
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
 
 public class Func {
 
-
-    //unix to UTC!
     public String unix_To_UTC(long unixSeconds) {
         // convert seconds to milliseconds
         Date date = new java.util.Date(unixSeconds * 1000L);
         // the format of your date
-        SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss z");
+        SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MMM-dd");
         // give a timezone reference for formatting (see comment at the bottom)
         sdf.setTimeZone(java.util.TimeZone.getTimeZone("GMT-4"));
         String formattedDate = sdf.format(date);
         return formattedDate;
     }
+
+    public String unix_To_weekday(long unixSeconds) {
+        SimpleDateFormat sdf = new SimpleDateFormat("EE");
+        Date dateFormat = new java.util.Date(unixSeconds * 1000);
+        String weekday = sdf.format(dateFormat);
+        return weekday;
+    }
+
+    public String unix_To_hour(long unixSeconds, String zone) {
+        //TODO: Send TimeZone!
+        Calendar cal = Calendar.getInstance();
+        cal.setTimeInMillis(unixSeconds * 1000L);
+        cal.setTimeZone(TimeZone.getTimeZone(zone));
+        String hour = cal.get(Calendar.HOUR_OF_DAY) + ":00";
+        return hour;
+    }
+
 
     public void setImageByUrl(String url, ImageView imageView) {
         Picasso.get().load(url).into(imageView);
@@ -101,12 +118,12 @@ public class Func {
             color = 0xFFb42703;
         } else if (40.5 <= temperature && temperature < 43.5) {
             color = 0xFFfac8dc;
-        } else if ( temperature <= 43.5) {
+        } else if (temperature <= 43.5) {
             color = 0xFF8c0101;
-        }else {
+        } else {
             color = 0xFF8c0101;
         }
-            return color;
-        }
-
+        return color;
     }
+
+}

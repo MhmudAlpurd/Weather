@@ -3,18 +3,22 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <org.eazegraph.lib.charts.BarChart
-        android:id="@+id/barChart_ForecastFrag"
-        android:layout_width="300dp"
-        android:layout_height="200dp"
-        android:layout_centerHorizontal="true"
-        android:scrollbarStyle="insideInset"
-        app:egAnimationTime="2000"
-        app:egBarWidth="30dp"
-        app:egFixedBarWidth="true"
-        app:egLegendHeight="30dp"
-        app:egLegendTextSize="10dp"
-        app:egShowValues="true" />
+
+
+        <org.eazegraph.lib.charts.BarChart
+            android:id="@+id/barChart_ForecastFrag"
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:layout_centerHorizontal="true"
+            android:scrollbarStyle="insideInset"
+            app:egAnimationTime="2000"
+            app:egBarWidth="30dp"
+            app:egFixedBarWidth="true"
+            app:egLegendHeight="30dp"
+            app:egLegendTextSize="10dp"
+            app:egShowValues="true" />
+
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"

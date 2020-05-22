@@ -1,83 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <TextView
-        android:id="@+id/txt_cityname_currentweatherfrag"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="3dp"
-        android:gravity="center"
-        android:text="Tehran"
-        android:textColor="#000000"
-        android:textSize="30sp"
-        android:textStyle="bold" />
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-
-    <TextView
-        android:id="@+id/txt_date_currentweatherfrag"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txt_cityname_currentweatherfrag"
-        android:layout_centerInParent="true"
-        android:text="TUESDAY, 9:00 AM"
-        android:textSize="15dp"
-        android:textStyle="bold" />
-
-    <RelativeLayout
-        android:id="@+id/rl_tempandicon_currentweatherfrag"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txt_date_currentweatherfrag"
-        android:layout_marginLeft="20dp">
+        android:layout_margin="3dp"
+        android:layout_weight="0.5"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txt_cityname_currentweatherfrag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tehran"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_hour_currentweatherfrag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_cityname_currentweatherfrag"
+            android:text="9:00 AM"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_date_currentweatherfrag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_cityname_currentweatherfrag"
+            android:text="TUESDAY"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center">
 
         <ImageView
             android:id="@+id/img_WeatherIcon_currentweatherfrag"
-            android:layout_width="170dp"
-            android:layout_height="170dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="30dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:src="@drawable/sunny" />
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="40dp"
-            android:layout_marginRight="70dp">
+    </LinearLayout>
 
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_marginEnd="7dp"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/txt_MainCurrentTemp_currentweatherfrag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="7dp"
                 android:text="20&#176;C"
                 android:textColor="#f7f30f"
                 android:textSize="50dp" />
+        </LinearLayout>
 
+        <LinearLayout
+            android:layout_marginStart="7dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
             <TextView
                 android:id="@+id/txt_weathersituation_currentweatherfrag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/txt_MainCurrentTemp_currentweatherfrag"
-                android:layout_marginTop="20dp"
                 android:text="Sunny"
                 android:textSize="20dp"
                 android:textStyle="bold" />
-
             <TextView
                 android:id="@+id/txt_weatherDiscription_currentweatherfrag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/txt_weathersituation_currentweatherfrag"
-                android:layout_marginTop="5dp"
+                android:layout_marginLeft="4dp"
                 android:text="Description"
                 android:textSize="15dp" />
-        </RelativeLayout>
+        </LinearLayout>
 
-    </RelativeLayout>
+    </LinearLayout>
 
 
     <LinearLayout
@@ -213,4 +234,4 @@
     </LinearLayout>
 
 
-</RelativeLayout>
+</LinearLayout>

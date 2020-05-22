@@ -59,7 +59,7 @@ public class forecastWeatherFragment extends BaseFragment implements ForecastCon
 
     @Override
     public void showForecastWeather(ForecastWeather forecastWeatherList) {
-        mBarChart = (BarChart) getActivity().findViewById(R.id.barChart_ForecastFrag);
+        mBarChart = getActivity().findViewById(R.id.barChart_ForecastFrag);
         double d = forecastWeatherList.getList().get(0).getWind().getSpeed();
         mItem = forecastWeatherList.getList();
         for (int i = 0; i < forecastWeatherList.getList().size(); i++) {
