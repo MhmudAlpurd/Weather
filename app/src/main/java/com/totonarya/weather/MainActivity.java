@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.totonarya.weather.forecastweather.ForecastWeatherFragment;
+import com.totonarya.weather.forecastweather.forecastWeatherFragment;
 import com.totonarya.weather.home.CurrentWeatherFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,16 +22,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setupViews();
+        setupViews_2();
         kebabMenu = findViewById(R.id.img_kebabmenu_main);
     }
 
     private void setupViews() {
-     /*   fragmentTransaction_Current = getSupportFragmentManager().beginTransaction();
+     fragmentTransaction_Current = getSupportFragmentManager().beginTransaction();
         fragmentTransaction_Current.replace(R.id.rel_main_fragmentContainer, new CurrentWeatherFragment());
-        fragmentTransaction_Current.commit();*/
+        fragmentTransaction_Current.commit();
+    }
 
+    private void setupViews_2() {
         fragmentTransaction_Forecast = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction_Forecast.replace(R.id.rel_forecast_fragmentContainer, new ForecastWeatherFragment());
+        fragmentTransaction_Forecast.replace(R.id.rel_Second_FragmentContainer, new forecastWeatherFragment());
         fragmentTransaction_Forecast.commit();
     }
 
