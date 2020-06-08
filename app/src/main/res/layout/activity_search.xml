@@ -6,9 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".search.SearchActivity">
 
+
+    <EditText
+        android:gravity="center"
+        android:background="@color/colorAccent"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:id="@+id/et_cityname_searchactivity"
+        android:hint="city"/>
+
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_margin="20dp"
+        android:layout_below="@id/et_cityname_searchactivity"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/rv_cities_searchactivity"/>
+
+
+
+
+
+
 
 </RelativeLayout>
