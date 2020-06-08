@@ -5,8 +5,8 @@ public class SearchCities {
     private int id;
     private String cityName;
     private String country;
-    private String iso1;
     private String iso2;
+    private String iso3;
     private int fav;
 
     public SearchCities() {
@@ -36,20 +36,20 @@ public class SearchCities {
         this.country = country;
     }
 
-    public String getIso1() {
-        return iso1;
-    }
-
-    public void setIso1(String iso1) {
-        this.iso1 = iso1;
-    }
-
     public String getIso2() {
         return iso2;
     }
 
     public void setIso2(String iso2) {
         this.iso2 = iso2;
+    }
+
+    public String getIso3() {
+        return iso3;
+    }
+
+    public void setIso3(String iso3) {
+        this.iso3 = iso3;
     }
 
     public int getFav() {

@@ -41,7 +41,11 @@ public class DataBase extends SQLiteOpenHelper {
         if (check.exists()) {
 
         } else {
-            copyDataBase();
+            try {
+                copyDataBase();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -84,12 +88,18 @@ public class DataBase extends SQLiteOpenHelper {
             do {
                 SearchCities searchCities = new SearchCities();
                 searchCities.setId(cursor.getColumnIndex(cities_db.DATABASE_ID));
-                searchCities.setCityName();
-                searchCities.setCountry();
-                searchCities.setFav();
-                searchCities.setIso1();
-                searchCities.setIso2();
-            } while ()
+                searchCities.setCityName(cursor.getString(cursor.getColumnIndex(cities_db.DATABASE_CITYNAME)));
+                searchCities.setCountry(cursor.getString(cursor.getColumnIndex(cities_db.DATABASE_COUNTRY)));
+                searchCities.setFav(cursor.getInt(cursor.getColumnIndex(cities_db.DATABASE_FAV)));
+                searchCities.setIso2(cursor.getString(cursor.getColumnIndex(cities_db.DATABASE_ISO2)));
+                searchCities.setIso3(cursor.getString(cursor.getColumnIndex(cities_db.DATABASE_ISO3)));
+                data.add(searchCities);
+
+            } while (cursor.moveToNext());
         }
+        cursor.close();
+        db.close();
+
+        return data;
     }
 }
