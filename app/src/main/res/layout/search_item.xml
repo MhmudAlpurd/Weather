@@ -2,15 +2,36 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="150dp"
+    android:layout_margin="20dp"
     android:background="@color/colorAccent"
-    android:gravity="center">
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:id="@+id/searchitem_id">
 
-    <TextView
-        android:id="@+id/txt_cityName_searchItem"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tehran"
-        android:textSize="30dp"
-        android:textStyle="bold" />
+        android:layout_marginRight="50dp"
+        android:gravity="left"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txt_CountryName_searchItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Iran"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_cityName_searchItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tehran"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
 
 </LinearLayout>

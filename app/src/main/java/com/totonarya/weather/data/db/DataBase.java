@@ -82,7 +82,7 @@ public class DataBase extends SQLiteOpenHelper {
     public List<SearchCities> getAllCities() {
         SQLiteDatabase db = this.getReadableDatabase();
         List<SearchCities> data = new ArrayList<>();
-        String query = "Select * From weatherCities";
+        String query = "Select * From worldcities";
         Cursor cursor = db.rawQuery(query, null);
         if (cursor.moveToFirst()) {
             do {
