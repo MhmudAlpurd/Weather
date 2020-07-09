@@ -102,4 +102,57 @@ public class DataBase extends SQLiteOpenHelper {
 
         return data;
     }
+
+
+    public List<SearchCities> getFavCities() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        List<SearchCities> data = new ArrayList<>();
+        String query = "Select * From worldcities WHERE fav =1";
+        Cursor cursor = db.rawQuery(query, null);
+        if (cursor.moveToFirst()) {
+            do {
+                SearchCities searchCities = new SearchCities();
+                searchCities.setId(cursor.getColumnIndex(cities_db.DATABASE_ID));
+                searchCities.setCityName(cursor.getString(cursor.getColumnIndex(cities_db.DATABASE_CITYNAME)));
+                searchCities.setCountry(cursor.getString(cursor.getColumnIndex(cities_db.DATABASE_COUNTRY)));
+                searchCities.setFav(cursor.getInt(cursor.getColumnIndex(cities_db.DATABASE_FAV)));
+                searchCities.setIso2(cursor.getString(cursor.getColumnIndex(cities_db.DATABASE_ISO2)));
+                searchCities.setIso3(cursor.getString(cursor.getColumnIndex(cities_db.DATABASE_ISO3)));
+                data.add(searchCities);
+
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+
+        return data;
+    }
+
+    public int fav_value(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT " + cities_db.DATABASE_FAV + " FROM worldcities WHERE " + cities_db.DATABASE_ID + "=" + id + "";
+        int value = 0;
+        Cursor cursor = db.rawQuery(query, null);
+        if (cursor.moveToFirst()) {
+            value = cursor.getInt(cursor.getColumnIndex(cities_db.DATABASE_FAV));
+            do {
+
+            } while (cursor.moveToNext());
+        }
+
+        db.close();
+        return value;
+    }
+
+
+    public void favChanger(int status, int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "UPDATE worldcities SET " + cities_db.DATABASE_FAV + "=" + status + " WHERE " + cities_db.DATABASE_ID + "=" + id +"";
+        db.execSQL(query);
+        db.close();
+
+
+    }
+
+
 }
